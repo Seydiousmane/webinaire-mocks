@@ -67,7 +67,7 @@ def test_get_pizzas_returns_correct_names(monkeypatch):
     mock_response.status_code = 200
     #mock_get.status_code = 200 #requests.get.status_code
 
-    
+
     #Mock pour requests.sample()
     mock_sample = mock.MagicMock
     mock_sample.return_value = products[:2]
@@ -93,11 +93,6 @@ def test_get_pizzas_returns_correct_names_with_mocker(mocker):
     mock_get.return_value.json.return_value = {
         "products": [{"product_name": product} for product in products]
     }
-    
-    """ mock_get = requests.get("unfauxurl")
-    mock_response = requests.get(" http://unfauxurl") #Faux requests get
-    mock_response.status_code = 200 """
-    #mock_get.status_code = 200 #requests.get.status_code
 
     #Mock pour requests.sample()
     mock_sample = mocker.patch('random.sample')
