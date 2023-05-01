@@ -1,7 +1,7 @@
 import requests
 import random
 
-def get_random_pizzas(quantity=3):
+def get_random_pizzas(quantity=2):
     """Returns a list of pizza names."""
     if quantity > 50:
         raise ValueError('Max quantity is 50')
@@ -12,7 +12,7 @@ def get_random_pizzas(quantity=3):
         "tagtype_0": "categories",
         "tag_contains_0": "contains",
         "tag_0": "pizzas",
-        "page_size": 1000
+        "page_size": 100
     }
     response = requests.get(
         'https://fr.openfoodfacts.org/cgi/search.pl',
@@ -27,4 +27,4 @@ def get_random_pizzas(quantity=3):
     ], quantity)
 
 if __name__ == "__main__":
-    print(get_random_pizzas())
+    print(get_random_pizzas(5))
